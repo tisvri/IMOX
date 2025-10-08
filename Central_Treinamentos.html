@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://svriglobal.com/wp-content/uploads/2021/04/logo-science-valley-favicon.png" type="image/x-icon">
+    <title>Treinamentos</title>
+    <link rel="stylesheet" type="text/css" href="./assets/css/centralTreinamentos.css">
+    <style>
+        body {
+            background-color: #cdcecd;
+            background-image: linear-gradient(to right,
+                    #cdcecd 0%,
+                    #ffffff 30%,
+                    #ffffff 70%,
+                    #cdcecd 100%);
+            background-image: url("assets/img/Fundo.webp");
+            background-size: auto;
+            /* Ou use: cover, auto, ou valores exatos */
+            background-repeat: no-repeat;
+            /* Evita que a imagem fique se repetindo */
+            background-position: center;
+            /* Centraliza a imagem */
+            padding: 2rem;
+            justify-content: center;
+        }
+
+        header {
+            margin-bottom: 20px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: scale-down;
+        }
+
+        .card h2 {
+            font-size: 25px;    
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="menu_pagina">
+            <div class="img_menu">
+                <a href="https://svriglobal.com/">
+                    <img class="logo" src="./assets/img/logo-science-valley.png" alt="Logo Science">
+                </a>
+            </div>
+            <div class="itens_menu">
+                <nav>
+                    <p>TREINAMENTOS IMOX</p>
+                    <ul>
+                        <button id="BotaoHome" class="botao-link">Home</button>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <div class="card">
+            <h2>X</h2>
+            <img src="./assets/img/integracao.png" alt="integracao">
+            <button id="BotaoX" class="botaoAcesso">Acessar</button>
+        </div>
+
+        <div class="card">
+            <h2>Y</h2>
+            <img src="./assets/img/Central de Proteção de Dados - RD Station.jpg" alt="LGPD">
+            <button id="BotaoY" class="botaoAcesso">Acessar</button>
+        </div>
+
+    </div>
+
+    <script>
+        document.getElementById('BotaoHome').onclick = () => {
+            window.location.href = "index.html";
+        };
+
+        document.getElementById('BotaoX').onclick = () => {
+            window.location.href = "#";
+        };
+        
+        document.getElementById('BotaoY').onclick = () => {
+            window.location.href = "./LGPD/Aula.html";
+        };
+
+    </script>
+</body>
+
+</html>

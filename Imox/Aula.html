@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Facilities</title>
+  <link rel="stylesheet" type="text/css" href="../assets/css/Area_videos.css">
+  <link rel="icon" href="https://svriglobal.com/wp-content/uploads/2021/04/logo-science-valley-favicon.png" type="image/x-icon">
+
+  <style>
+    body {
+      background-color: #cdcecd;
+      background-image: linear-gradient(to right, #cdcecd 0%, #ffffff 30%, #ffffff 70%, #cdcecd 100%);
+      background-image: url("../assets/img/Fundo.webp");
+      background-size: auto;
+      background-position: center;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .lesson {
+      cursor: pointer;
+    }
+
+    .pos_video a {
+      margin-right: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="video-section">
+      <div class="menu_video">
+        <a href="https://svriglobal.com/"><img class="logo" src="../assets/img/logo-science-valley.png"
+            alt="Logo Science"></a>
+            <h2>IMOX</h2>
+        <div class="menu_buttons">
+          <a class="BtnMenu" href="../index.html">Home</a>
+        </div>
+      </div>
+
+      <iframe id="videoFrame"
+        src="https://netorgft4487772.sharepoint.com/sites/ScienceValley/_layouts/15/Doc.aspx?sourcedoc={1b34fbab-e93c-4d24-a401-b691bcc7a2a6}&amp;action=embedview&amp;wdAr=1.7777777777777777"
+        frameborder="0" scrolling="no" allowfullscreen>
+      </iframe>
+
+      <div class="pos_video">
+        <a class="BtnMenu" href="#" data-index="-1">Anterior</a>
+        <a class="BtnMenu" href="#" data-index="1">Próximo</a>
+      </div>
+    </div>
+
+    <div class="lessons-section">
+      <h2>Tópicos</h2>
+
+      <div class="lesson"
+        data-src="https://netorgft4487772.sharepoint.com/sites/ScienceValley/_layouts/15/Doc.aspx?sourcedoc={1b34fbab-e93c-4d24-a401-b691bcc7a2a6}&amp;action=embedview&amp;wdAr=1.7777777777777777">
+        <span class="lesson-title">Slides</span><br><span
+          class="lesson-duration">10 minutos</span>
+      </div>
+
+
+      <div class="lesson"
+        data-src="https://forms.office.com/Pages/ResponsePage.aspx?id=prA6w5_bT0u6yRmFp-cite-u8S2Hbf1PhF3SjS42Q_VURFpHRTBPTzE3ODY0WkE1TUNOMFJIVlQ3Ri4u&embed=true">
+        <span class="lesson-title">Questionario do Slides.</span><br><span
+          class="lesson-duration">10 minutos</span>
+      </div>
+
+      <div class="lesson"
+        data-src="https://netorgft4487772.sharepoint.com/sites/ScienceValley/_layouts/15/embed.aspx?UniqueId=f879f580-1df9-4ea4-a84a-c407ec4583e8&embed=%7B%22ust%22%3Afalse%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create">
+        <span class="lesson-title">Video aplicação do Pellet.</span><br><span class="lesson-duration">10
+          minutos</span>
+      </div>
+
+      <div class="lesson"
+        data-src="https://forms.office.com/Pages/ResponsePage.aspx?id=prA6w5_bT0u6yRmFp-cite-u8S2Hbf1PhF3SjS42Q_VUQUdQNkZDNDUwRldGUTJNODBFU1VJRjZLTC4u&embed=true">
+        <span class="lesson-title">Questionario da aplicação do Pellet.</span><br><span class="lesson-duration">12 minutos</span>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const videoLinks = [
+      "https://netorgft4487772.sharepoint.com/sites/ScienceValley/_layouts/15/Doc.aspx?sourcedoc={1b34fbab-e93c-4d24-a401-b691bcc7a2a6}&amp;action=embedview&amp;wdAr=1.7777777777777777",
+      "https://forms.office.com/Pages/ResponsePage.aspx?id=prA6w5_bT0u6yRmFp-cite-u8S2Hbf1PhF3SjS42Q_VURFpHRTBPTzE3ODY0WkE1TUNOMFJIVlQ3Ri4u&embed=true",
+      "https://netorgft4487772.sharepoint.com/sites/ScienceValley/_layouts/15/embed.aspx?UniqueId=f879f580-1df9-4ea4-a84a-c407ec4583e8&embed=%7B%22ust%22%3Afalse%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create",
+      "https://forms.office.com/Pages/ResponsePage.aspx?id=prA6w5_bT0u6yRmFp-cite-u8S2Hbf1PhF3SjS42Q_VUQUdQNkZDNDUwRldGUTJNODBFU1VJRjZLTC4u&embed=true"
+    ];
+
+    let currentIndex = 0;
+    const iframe = document.getElementById("videoFrame");
+    const btnAnterior = document.querySelector('.pos_video a[data-index="-1"]');
+    const btnProximo = document.querySelector('.pos_video a[data-index="1"]');
+
+    function updateButtons() {
+      btnAnterior.style.display = currentIndex === 0 ? "none" : "inline-block";
+
+      btnProximo.style.display = currentIndex === videoLinks.length - 1 ? "none" : "inline-block";
+    }
+
+    document.querySelectorAll(".lesson").forEach((el, index) => {
+      el.addEventListener("click", () => {
+        currentIndex = index;
+        iframe.src = videoLinks[currentIndex];
+        updateButtons();
+      });
+    });
+
+    document.querySelectorAll(".pos_video a").forEach(btn => {
+      btn.addEventListener("click", e => {
+        e.preventDefault();
+        const direction = parseInt(btn.dataset.index);
+        const newIndex = currentIndex + direction;
+        if (newIndex >= 0 && newIndex < videoLinks.length) {
+          currentIndex = newIndex;
+          iframe.src = videoLinks[currentIndex];
+          updateButtons();
+        }
+      });
+    });
+
+    // Inicializa os botões corretamente ao carregar a página
+    updateButtons();
+  </script>
+</body>
+
+</html>
